@@ -8,9 +8,10 @@ public class Main {
 
         Operand a = new Operand(), b = new Operand();
         Operation operation = new Operation();
+        String inputLine = "";
 
-        Parser.parseInput("34 + 4", operation, a, b);
-
-        out.println("ends...");
+        inputLine = IO.readLine();
+        Parser.parseInput(inputLine, operation, a, b);
+        IO.printLine("ends...");
     }
 }
