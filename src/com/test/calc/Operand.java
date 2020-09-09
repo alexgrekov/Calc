@@ -7,7 +7,7 @@ public class Operand {
     }
 
     private OperandFormat format;
-    int value;
+    private int value;
 
     public void set(String input) {
         try {
@@ -19,5 +19,20 @@ public class Operand {
             throw new IllegalArgumentException("Exception: Unknown format of argument!");
         }
     }
+    public void set(int input, OperandFormat format) {
+        this.value = input;
+        this.format = format;
+    }
 
+    public OperandFormat getFormat(){
+        return format;
+    }
+    public int getValue(){
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(value);
+    }
 }
