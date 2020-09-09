@@ -5,12 +5,13 @@ public class Operand {
         DECIMAL,
         ROMAN
     }
-    OperandFormat format;
+
+    private OperandFormat format;
     int value;
 
-    Operand(String input) {
+    public void set(String input) {
         try {
-            value = Integer.parseInt(input);
+            this.value = Integer.parseInt(input);
             this.format = OperandFormat.DECIMAL;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Exception: Unknown format of argument!");

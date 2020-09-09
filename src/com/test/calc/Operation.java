@@ -3,7 +3,6 @@ package com.test.calc;
 public class Operation {
 
     public enum OperationType {
-        UNKNOWN,
         ADDITION,
         SUBTRACTION,
         MULTIPLICATION,
@@ -12,7 +11,7 @@ public class Operation {
 
     private OperationType operation;
 
-    public Operation(String value) {
+    public void set(String value) {
         switch (value) {
             case "+" -> this.operation = OperationType.ADDITION;
             case "-" -> this.operation = OperationType.SUBTRACTION;
