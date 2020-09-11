@@ -6,7 +6,7 @@ public class Operation {
         ADDITION,
         SUBTRACTION,
         MULTIPLICATION,
-        DIVISION;
+        DIVISION
     }
 
     private OperationType operation;

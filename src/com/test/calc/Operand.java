@@ -13,26 +13,35 @@ public class Operand {
         try {
             this.value = Integer.parseInt(input);
             this.format = OperandFormat.DECIMAL;
-            if (this.value < 1 || this.value > 10)
-                throw new IllegalArgumentException("Exception: operand can not be <1 or >10!");
+
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Exception: Unknown format of argument!");
+            this.value = RomanConverter.parse(input);
+            this.format = OperandFormat.ROMAN;
         }
+        if (this.value < 1 || this.value > 10)
+            throw new IllegalArgumentException("Exception: operand can not be <1 or >10!");
     }
+
     public void set(int input, OperandFormat format) {
         this.value = input;
         this.format = format;
     }
 
-    public OperandFormat getFormat(){
+    public OperandFormat getFormat() {
         return format;
     }
-    public int getValue(){
+
+    public int getValue() {
         return value;
     }
 
     @Override
     public String toString() {
-        return Integer.toString(value);
+        String result = "";
+        switch (this.format) {
+            case DECIMAL -> result = Integer.toString(value);
+            case ROMAN -> result = RomanConverter.toRoman(value);
+        }
+        return result;
     }
 }
